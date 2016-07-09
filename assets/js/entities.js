@@ -11,7 +11,7 @@ function addRow(tableID) {
 	var row = table.insertRow(rowCount);
 
 	var colCount = table.rows[0].cells.length;
-
+	
 	for(var i=0; i<colCount; i++) {
 
 		var newcell	= row.insertCell(i);
@@ -30,6 +30,8 @@ function addRow(tableID) {
 					break;
 		}
 	}
+
+	row.className = "EntityRow";
 }
 
 // This function assumes that each row's first cell contains
@@ -61,7 +63,14 @@ function deleteRow(tableID)
 		for (var j=0; j<colCount; j++)
 		{
 			var cell = table.rows[i].cells[j];
-			cell.innerHTML = setRowNum(cell.innerHTML, i);
+			if ((cell.childNodes[0].type == "text") || (cell.childNodes[0].type == "select-one"))
+			{
+				cell.childNodes[0].name = setRowNum(cell.childNodes[0].name , i);
+			}
+			else if ((cell.childNodes.length > 1) && (cell.childNodes[1].type == "select-one"))
+			{
+				cell.childNodes[1].name = setRowNum(cell.childNodes[1].name , i);
+			}
 		}
 	}
 }
@@ -76,7 +85,8 @@ function addEntity(tableID)
 
 	if (rowCount === 0)
 	{
-		table.insertRow(0);
+		var row = table.insertRow(0);
+		row.className = "SchemaRow";
 		rowCount++;
 	}
 
@@ -87,7 +97,8 @@ function addEntity(tableID)
 
 	if (colCount === ENTITIES_PER_ROW)
 	{
-		table.insertRow(rowCount);
+		var row = table.insertRow(rowCount);
+		row.className = "SchemaRow";
 		insertionRowIndex = rowCount;
 		insertionColIndex = 0;
 	}
@@ -202,9 +213,9 @@ function getEntityHTML()
 {
 	return "<div class=\"Entity\">\
 				<div class=\"EntityTitle\">\
-					<input class=\"EntityTitleInput\" type=\"text\" name=\"entityName_{cellNum}_\" STYLE=\"color: black; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: rgba(255, 255, 255, 0.0); border-width: 0px;\" size=\"16\" maxlength=\"100\" placeholder=\"Name\">\
+					<input class=\"EntityTitleInput\" type=\"text\" name=\"entityName_{cellNum}_\" STYLE=\"color: black; font-family: Verdana; font-weight: bold; font-size: 12px; background-color: rgba(255, 255, 255, 0.0); border-width: 0px;\" size=\"16\" maxlength=\"100\" placeholder=\"Enter Name\">\
 				</div>\
-				<TABLE id=\"EntityTable_{cellNum}_\" border=\"1\">\
+				<TABLE id=\"EntityTable_{cellNum}_\" border=\"1\" class=\".table\" STYLE=\"width: 100%;\">\
 					<col span=\"1\" class=\"skinny\">\
 					<TR class=\"EntityRow\">\
 						<TD><INPUT type=\"checkbox\"/></TD>\

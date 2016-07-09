@@ -2,7 +2,7 @@
 	border:medium solid black;
 	text-align: center;
 	width: 400px;
-	padding: 0px;
+	padding: 6px;
 }
 
 .Entity:after, .Controls:after {
@@ -23,10 +23,12 @@
 
 .EntityPropertyNameInput {
 	width : 100%;
+	padding: 2px;
 }
 
 .EntityTypeSelection {
-	width: 100%;
+	height: 100%;
+	padding: 2px;
 }
 
 .EntityButtonHolder {
@@ -42,6 +44,27 @@
 	padding: 8px;
 }
 
+.EntityRow {
+	height: 40px;
+	padding: 2px 0px;
+	width: 100%;
+	vertical-align: center;
+}
+
+.EntityTable {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.SchemaTable {
+	border-spacing: 10px;
+    border-collapse: separate;
+}
+
+.SchemaRow {
+	vertical-align: top;
+}
+
 input{
    text-align:center;
 }
@@ -51,20 +74,12 @@ table, tr, td{
 	text-align: center;
 }
 
-table {
-	width:400px;
-	border-collapse: collapse;
-}
-
 tr {
 	width: 100%;
-	padding: 4px;
 }
 
 td{
 	width: auto;
-	padding: 4px;
-	vertical-align: top;
 }
 
 .skinny {

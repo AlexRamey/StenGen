@@ -1,0 +1,70 @@
+.Entity {
+	border:medium solid black;
+	text-align: center;
+	width: 400px;
+	padding: 0px;
+}
+
+.Entity:after, .Controls:after {
+	content: " ";
+   	display: block; 
+   	height: 0; 
+   	clear: both;
+}
+
+.EntityTitle {
+	width: 100%;
+	background-color: #f2f2f2;
+}
+
+.EntityTitleInput {
+	width: 100%;
+}
+
+.EntityPropertyNameInput {
+	width : 100%;
+}
+
+.EntityTypeSelection {
+	width: 100%;
+}
+
+.EntityButtonHolder {
+	height: auto;
+	width: auto;
+	float: left;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+.ControlButtonHolder {
+	float: left;
+	padding: 8px;
+}
+
+input{
+   text-align:center;
+}
+
+table, tr, td{
+	border: none;
+	text-align: center;
+}
+
+table {
+	width:400px;
+	border-collapse: collapse;
+}
+
+tr {
+	width: 100%;
+}
+
+td{
+	width: auto;
+	padding: 0px 4px;
+}
+
+.skinny {
+	width: 20px;
+}

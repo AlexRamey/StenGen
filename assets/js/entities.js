@@ -102,6 +102,8 @@ function addEntity(tableID)
 	newcell.innerHTML = entityHTML;
 }
 
+// This function deletes an entity from the table, and updates
+// all entity cell_nums and values accordingly.
 function deleteEntity(tableID, entityIdentifier)
 {
 	entityIdentifier = entityIdentifier.replace(/_|{|}/g, "");
@@ -126,7 +128,8 @@ function deleteEntity(tableID, entityIdentifier)
 		// copy the next cell into the current one until finished
 		for (var i = targetRowIndex; i < rowCount; i++)
 		{
-			for (var j = targetColIndex; j < ENTITIES_PER_ROW; j++)
+			var j = ((i == targetRowIndex) ? (targetColIndex) : (0));
+			for (j; j < ENTITIES_PER_ROW; j++)
 			{
 				if ((i == (rowCount - 1)) && (j == (finalRowColCount - 1)))
 				{
@@ -134,9 +137,11 @@ function deleteEntity(tableID, entityIdentifier)
 					table.rows[i].deleteCell(j);
 					break;
 				}
-
+				
 				var nextCell = ((j!=2) ? table.rows[i].cells[j+1] : table.rows[i+1].cells[0]);
-				table.rows[i].cells[j].innerHTML = setCellNum(nextCell.innerHTML, i*ENTITIES_PER_ROW + j);
+				var curCell = table.rows[i].cells[j];
+				curCell.innerHTML = setCellNum(nextCell.innerHTML, i*ENTITIES_PER_ROW + j);
+				recursiveCopy(curCell, nextCell);
 			}
 		}
 	}
@@ -144,7 +149,37 @@ function deleteEntity(tableID, entityIdentifier)
 	// Cleanup
 	if (finalRowColCount == 1)
 	{
-		table.deleteRow(targetRowIndex);
+		table.deleteRow(rowCount - 1);
+	}
+}
+
+// Performs a recursive copy. This is helpful for copying all
+// input values from one Entity to another. InnerHTML of the
+// entity cell in the schema table doesn't include these values.
+function recursiveCopy(toChild, fromChild)
+{
+	// base case
+	if ((fromChild.children.length == 0) || (fromChild.type == "select-one"))
+	{
+		switch(fromChild.type) {
+			case "text":
+					toChild.value = fromChild.value;
+					break;
+			case "checkbox":
+					toChild.checked = fromChild.checked;
+					break;
+			case "select-one":
+					toChild.selectedIndex = fromChild.selectedIndex;
+					break;
+			}
+	}
+	else
+	{
+		// recursive case
+		for (var i=0; i<fromChild.children.length; i++)
+		{
+			recursiveCopy(toChild.children[i], fromChild.children[i]);
+		}
 	}
 }
 

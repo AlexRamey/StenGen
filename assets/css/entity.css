@@ -58,11 +58,13 @@ table {
 
 tr {
 	width: 100%;
+	padding: 4px;
 }
 
 td{
 	width: auto;
-	padding: 0px 4px;
+	padding: 4px;
+	vertical-align: top;
 }
 
 .skinny {

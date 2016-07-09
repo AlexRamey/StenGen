@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>StenGen Model Definition</title>
+		<meta content="noindex, nofollow" name="robots">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Including CSS File Here -->
+		<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+		<link href="assets/css/entity.css" rel="stylesheet" type="text/css">
+		<!-- BOOTSTRAP: Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- Including JS File Here -->
+		<script src="assets/js/multi_step_form.js" type="text/javascript"></script>
+		<script src="assets/js/entities.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<!--BOOTSTRAP: NavBar -->
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+		    	<div class="navbar-header">
+		      		<a class="navbar-brand" href="#">StenGen!</a>
+		    	</div>
+		    	<ul class="nav navbar-nav">
+		      		<li class="active"><a href="#">Home</a></li>
+		      		<li><a href="about.html">About</a></li>
+		    	</ul>
+		  	</div>
+		</nav>
+		<div class="content">
+			<!-- Multistep Form -->
+			<div class="main">
+				<form action="#" class="regform" method="get">
+					<!-- Progressbar -->
+					<ul id="progressbar">
+						<li id="active1" class="ProgressListItem">Create Account</li>
+						<li id="active2" class="ProgressListItem">Educational Profiles</li>
+						<li id="active3" class="ProgressListItem">Personal Details</li>
+						<li id="active4" class="ProgressListItem">Define Entities</li>
+					</ul>
+					<!-- Fieldsets -->
+					<fieldset id="first">
+						<h2 class="title">Create your account</h2>
+						<p class="subtitle">Step 1</p><input class="text_field FormText" name="email" placeholder="Email" type="text" value="">
+						<input class="text_field FormText" name="pass" placeholder="Password" type="password" value="">
+						<input class="text_field FormText" name="cpass" placeholder="Confirm Password" type="password" value="">
+						<input id="next_btn1" class="ButtonInput" onclick="next_step1()" type="button" value="Next">
+					</fieldset>
+					<fieldset id="second">
+						<h2 class="title">Educational Profiles</h2>
+						<p class="subtitle">Step 2</p>
+						<select class="options FormSelect">
+							<option>--Select Education--</option>
+							<option>Post Graduate</option>
+							<option>Graduate</option>
+							<option>HSC</option>
+							<option>SSC</option>
+						</select>
+						<input class="text_field FormText" name="marks" placeholder="Marks Obtained" type="text" value="">
+						<input class="text_field FormText" name="pyear" placeholder="Passing Year" type="text" value="">
+						<input class="text_field FormText" name="univ" placeholder="University" type="text">
+						<input id="pre_btn1" class="ButtonInput" onclick="prev_step1()" type="button" value="Previous">
+						<input id="next_btn2" class="ButtonInput" name="next" onclick="next_step2()" type="button" value="Next">
+					</fieldset>
+					<fieldset id="third">
+						<h2 class="title">Personal Details</h2>
+						<p class="subtitle">Step 3</p>
+						<input class="text_field FormText" name="fname" placeholder="First Name" type="text">
+						<input class="text_field FormText" name="lname" placeholder="Last Name" type="text">
+						<input class="text_field FormText" name="cont" placeholder="Contact" type="text">
+						<label>Gender</label>
+						<input name="gender" type="radio" value="Male">Male
+						<input name="gender" type="radio" value="Female">Female
+						<textarea name="address" placeholder="Address">
+						</textarea>
+						<input id="pre_btn2" class="ButtonInput" onclick="prev_step2()" type="button" value="Previous">
+						<input id="next_btn3" class="ButtonInput" name="next" onclick="next_step3()" type="button" value="Next">
+					</fieldset>
+					<fieldset id="fourth">
+						<h2 class="title">Define Entities</h2>
+						<p class="subtitle">Step 4</p>
+						<div class="Controls">
+							<div class = "ControlButtonHolder">
+								<input id="pre_btn3" class="ButtonInput" onclick="prev_step3()" type="button" value="Previous">
+							</div>
+							<div class = "ControlButtonHolder">
+								<input class="ButtonInput" onclick="addEntity('SchemaTable');" type="button" value="Add Entity">
+							</div>
+							<div class = "ControlButtonHolder">
+								<input class="submit_btn" onclick="validation(event)" type="submit" value="Submit">
+							</div>
+						</div>
+						<div>
+							<TABLE id="SchemaTable" class=".table SchemaTable">
+								<!-- Entities will populate here -->
+							</Table>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

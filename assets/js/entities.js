@@ -232,13 +232,13 @@ function getEntityHTML()
 					</TR>\
 				</TABLE>\
 				<div class = \"EntityButtonHolder\">\
-					<button type=\"button\" onclick=\"addRow('EntityTable_{cellNum}_');\">New Attribute</button>\
+					<button type=\"button\" onclick=\"addRow('EntityTable_{cellNum}_');\">Add Row</button>\
 				</div>\
 				<div class = \"EntityButtonHolder\">\
-					<button type=\"button\" onclick=\"deleteRow('EntityTable_{cellNum}_');\">Remove Selected</button>\
+					<button type=\"button\" onclick=\"deleteRow('EntityTable_{cellNum}_');\">Delete Rows</button>\
 				</div>\
 				<div class = \"EntityButtonHolder\">\
-					<button type=\"button\" onclick=\"deleteEntity('SchemaTable', '_{cellNum}_');\">Delete Entity</button>\
+					<button type=\"button\" onclick=\"deleteEntity('SchemaTable', '_{cellNum}_');\">Remove</button>\
 				</div>\
 			</div>";
 }

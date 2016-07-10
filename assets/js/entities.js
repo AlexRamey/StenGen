@@ -221,7 +221,7 @@ function getEntityHTML()
 						<TD><INPUT type=\"checkbox\"/></TD>\
 						<TD><INPUT type=\"text\" name=\"propertyName_{cellNum}_[rowNum]_\" class=\"EntityPropertyNameInput\"/></TD>\
 						<TD>\
-							<SELECT name=\"propertyType_{cellNum}_[rowNum]_}_\" class=\"EntityTypeSelection\">\
+							<SELECT name=\"propertyType_{cellNum}_[rowNum]_\" class=\"EntityTypeSelection\">\
 								<OPTION value=\"int\">Int</OPTION>\
 								<OPTION value=\"string\">String</OPTION>\
 								<OPTION value=\"bool\">Bool</OPTION>\
@@ -235,7 +235,7 @@ function getEntityHTML()
 					<button type=\"button\" onclick=\"addRow('EntityTable_{cellNum}_');\">Add Row</button>\
 				</div>\
 				<div class = \"EntityButtonHolder\">\
-					<button type=\"button\" onclick=\"deleteRow('EntityTable_{cellNum}_');\">Delete Rows</button>\
+					<button type=\"button\" onclick=\"deleteRow('EntityTable_{cellNum}_');\">Delete Row(s)</button>\
 				</div>\
 				<div class = \"EntityButtonHolder\">\
 					<button type=\"button\" onclick=\"deleteEntity('SchemaTable', '_{cellNum}_');\">Remove</button>\

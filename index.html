@@ -32,46 +32,47 @@
 				<form action="#" class="regform" method="get">
 					<!-- Progressbar -->
 					<ul id="progressbar">
-						<li id="active1" class="ProgressListItem">Create Account</li>
-						<li id="active2" class="ProgressListItem">Educational Profiles</li>
-						<li id="active3" class="ProgressListItem">Personal Details</li>
-						<li id="active4" class="ProgressListItem">Define Entities</li>
+						<li id="active1" class="ProgressListItem">App Basic</li>
+						<li id="active2" class="ProgressListItem">Options</li>
+						<li id="active3" class="ProgressListItem">Config</li>
+						<li id="active4" class="ProgressListItem">Models</li>
 					</ul>
 					<!-- Fieldsets -->
 					<fieldset id="first">
-						<h2 class="title">Create your account</h2>
-						<p class="subtitle">Step 1</p><input class="text_field FormText" name="email" placeholder="Email" type="text" value="">
-						<input class="text_field FormText" name="pass" placeholder="Password" type="password" value="">
-						<input class="text_field FormText" name="cpass" placeholder="Confirm Password" type="password" value="">
+						<h2 class="title">App Basic</h2>
+						<p class="subtitle">Step 1</p>
+						<input class="text_field FormText" name="email" placeholder="Email" type="text" value="">
+						<input class="text_field FormText" name="appName" placeholder="App Name" type="text" value="">
+						<p>
+							<label>Framework:&ensp;</label>
+							<input name="framework" type="radio" value="Xamarin"> Xamarin &nbsp;
+							<input name="framework" type="radio" value="Ionic"> Ionic &nbsp;
+							<input name="framework" type="radio" value="Native"> Native &nbsp;
+						</p>
 						<input id="next_btn1" class="ButtonInput" onclick="next_step1()" type="button" value="Next">
 					</fieldset>
 					<fieldset id="second">
-						<h2 class="title">Educational Profiles</h2>
+						<h2 class="title">Options</h2>
 						<p class="subtitle">Step 2</p>
-						<select class="options FormSelect">
-							<option>--Select Education--</option>
-							<option>Post Graduate</option>
-							<option>Graduate</option>
-							<option>HSC</option>
-							<option>SSC</option>
-						</select>
-						<input class="text_field FormText" name="marks" placeholder="Marks Obtained" type="text" value="">
-						<input class="text_field FormText" name="pyear" placeholder="Passing Year" type="text" value="">
-						<input class="text_field FormText" name="univ" placeholder="University" type="text">
+						<p>
+							<label>Database:&ensp;</label>
+							<input name="database" type="radio" value="SQL" checked> SQL &nbsp;
+							<input name="database" type="radio" value="MongoDB"> MongoDB &nbsp;
+							<input name="database" type="radio" value="neo4j"> neo4j &nbsp;
+							<input name="database" type="radio" value="none"> none &nbsp;
+						</p>
+						<p>
+							<input name="isWebAPI" class="FormCheck" type="checkbox" value="true" checked> WebAPI
+						</p>
 						<input id="pre_btn1" class="ButtonInput" onclick="prev_step1()" type="button" value="Previous">
 						<input id="next_btn2" class="ButtonInput" name="next" onclick="next_step2()" type="button" value="Next">
 					</fieldset>
-					<fieldset id="third">
-						<h2 class="title">Personal Details</h2>
+					<fieldset id="third" STYLE="padding: 20px;">
+						<h2 class="title">Config</h2>
 						<p class="subtitle">Step 3</p>
-						<input class="text_field FormText" name="fname" placeholder="First Name" type="text">
-						<input class="text_field FormText" name="lname" placeholder="Last Name" type="text">
-						<input class="text_field FormText" name="cont" placeholder="Contact" type="text">
-						<label>Gender</label>
-						<input name="gender" type="radio" value="Male">Male
-						<input name="gender" type="radio" value="Female">Female
-						<textarea name="address" placeholder="Address">
-						</textarea>
+						<input class="text_field FormText" name="dbUsername" placeholder="DB Username" type="text">
+						<input class="text_field FormText" name="dbPassword" placeholder="DB Password" type="password">
+						<input class="text_field FormText" name="apiToken" placeholder="API Token" type="text">
 						<input id="pre_btn2" class="ButtonInput" onclick="prev_step2()" type="button" value="Previous">
 						<input id="next_btn3" class="ButtonInput" name="next" onclick="next_step3()" type="button" value="Next">
 					</fieldset>

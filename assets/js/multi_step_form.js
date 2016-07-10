@@ -25,12 +25,15 @@ event.preventDefault();
 return true;
 }
 }
+
+function serializeResponses
+
 /*---------------------------------------------------------*/
 // Function that executes on click of first next button.
 function next_step1() {
-document.getElementById("first").style.display = "none";
-document.getElementById("second").style.display = "block";
-document.getElementById("active2").style.color = "red";
+	document.getElementById("first").style.display = "none";
+	document.getElementById("second").style.display = "block";
+	document.getElementById("active2").style.color = "red";
 }
 // Function that executes on click of first previous button.
 function prev_step1() {
